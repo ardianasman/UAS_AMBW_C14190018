@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:uas_ambw_c14190018/dataClass.dart';
+import 'package:uas_ambw_c14190018/like.dart';
 import 'package:uas_ambw_c14190018/postsClass.dart';
 import 'package:uas_ambw_c14190018/responseClass.dart';
 
@@ -51,7 +52,17 @@ class _MyAppState extends State<MyApp> {
                           title: Text(posts[index].title),
                           subtitle: Text(posts[index].description),
                           leading: Image.network(posts[index].thumbnail),
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Detail(
+                                        link: posts[index].link,
+                                        title: posts[index].title,
+                                        description: posts[index].description,
+                                        pubDate: posts[index].pubDate,
+                                        thumbnail: posts[index].thumbnail)));
+                          },
                         ),
                       );
                     },
