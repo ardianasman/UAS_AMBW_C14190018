@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:uas_ambw_c14190018/dataClass.dart';
+import 'package:uas_ambw_c14190018/detail.dart';
 import 'package:uas_ambw_c14190018/like.dart';
 import 'package:uas_ambw_c14190018/postsClass.dart';
 import 'package:uas_ambw_c14190018/responseClass.dart';
+import 'package:firebase_core/firebase_core.dart';
 
+import 'firebase_options.dart';
 import 'service.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
